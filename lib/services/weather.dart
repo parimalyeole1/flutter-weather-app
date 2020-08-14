@@ -3,6 +3,11 @@ import 'package:clima/services/networking.dart';
 import 'package:geolocator/geolocator.dart';
 
 class WeatherModel {
+  Future<dynamic> getCityWeather(String city) async {
+    var weatherData = await WeatherHttpService().getDataByCity(city);
+    return weatherData;
+  }
+
   Future<dynamic> getLocationWeather() async {
     Position location = await Location().getCurrentLocation();
     var weatherData = await WeatherHttpService()
